@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Portfolio</title>
+  </head>
+<body  background="https://www.2gb.com/wp-content/uploads/sites/2/2017/04/STOCKS.jpg" >
+  <style>
+  *, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #384047;
+}
+
+form {
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+}
+
+h1 {
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"]{
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 10px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 20px;
+}
+
+fieldset {
+  margin-bottom: 30px;
+  border: none;
+}
+
+@media screen and (min-width: 500px) {
+  form {
+    max-width: 500px;
+  }
+}
+  </style>
+<br><br>
+<form action="/adddata" method="POST">
+
+<fieldset>
+<h1 style="background-color:#E5EFF4;">Stock Assignment</h1>
+<h4 align="right"></h4>
+
+Amount to Invest in USD
+
+<br>
+<input type="text" name="amount">
+<br>
+Choose Stock
+<br>
+<input type="radio" name="strategy" value="AAPL"> AAPL
+<input type="radio" name="strategy" value="ADBE"> ADBE &nbsp;
+<input type="radio" name="strategy" value="NKE"> NKE &nbsp;
+<input type="radio" name="strategy" value="JCI"> JCI &nbsp;
+<input type="radio" name="strategy" value="GOOG"> GOOG
+<br><br>
+<input type="radio" name="strategy" value="BIIN"> BIIN &nbsp;
+<input type="radio" name="strategy" value="AVGO"> AVGO &nbsp;
+<input type="radio" name="strategy" value="NFLX"> NFLX &nbsp;
+<input type="radio" name="strategy" value="IMAX"> IMAX &nbsp;
+<input type="radio" name="strategy" value="SFM"> SFM 
+<br><br>
+<input type="radio" name="strategy" value="VTI"> VTI &nbsp;&nbsp;
+<input type="radio" name="strategy" value="MSFT"> MSFT &nbsp;
+<input type="radio" name="strategy" value="IXUS"> IXUS &nbsp;
+<input type="radio" name="strategy" value="ILTB"> ILTB &nbsp;
+<input type="radio" name="strategy" value="GSPC"> GSPC 
+<br><br>
+<input type="radio" name="strategy" value="EME"> EME &nbsp;
+<input type="radio" name="strategy" value="FB"> FB &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="strategy" value="TSN"> TSN &nbsp;&nbsp;
+<input type="radio" name="strategy" value="ENS"> ENS &nbsp;&nbsp;
+<input type="radio" name="strategy" value="CVG"> CVG
+<br><br>
+<input type="radio" name="strategy" value="FDC"> FDC &nbsp;
+<input type="radio" name="strategy" value="TMUS"> TMUS &nbsp;
+<input type="radio" name="strategy" value="HCA"> HCA &nbsp;
+<input type="radio" name="strategy" value="EXPE"> EXPE &nbsp;
+<input type="radio" name="strategy" value="FDX"> FDX
+<br><br>
+
+<input type="submit" value="Submit">
+</fieldset>
+</form>
+<p>
+
+
+</p>
+
+</body>
+</html>
+

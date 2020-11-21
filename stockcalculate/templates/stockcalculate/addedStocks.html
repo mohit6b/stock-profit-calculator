@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Stock Engine</title>
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="/static/css/boot.css">
+
+
+  <!-- Bootstrap -->
+
+<style>
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+</style>
+
+</head>
+
+
+
+<body>
+  <div class="header">
+    <div class="container-fluid">
+      
+          <a href="#" class="text-center">
+            <div class="text-center"><img src="/static/img/logo.png" height="38" width="38"></div>
+            <div class="text-center"><center>Stock Engine</center>
+            </div>
+          </a>
+        </div>
+    
+  </div>
+
+
+
+
+<div class="container">
+  <div class="content">
+
+<center>        <h2><b style="color:#376264">Strategy/Stock Investment Details</b></h2>  </center>
+
+
+    <div class="row">
+      <div class="col-md-12">
+
+<br>
+<br>
+
+
+
+<table style="border-width: 2px;">
+  <tr style="border-width: 2px;">
+  <th style="text-align:center; border-width: 2px;"><b>Amount Invested</b></th>
+  <th style="text-align:center; border-width: 2px;"><b>Selected Strategy/Stock</b></th>
+  </tr>
+  <tr style="border-width: 2px;">
+  <td style="text-align:center; border-width: 2px;"><b style="color:#008000"><b>{{amount}}</b></td>
+  <td style="text-align:center; border-width: 2px;"><b style="color:#008000"><b>{{strategy}}</b></td>
+  </tr>
+</table>
+
+
+<br>
+<br>
+<br>
+
+
+	<table style="border-width: 2px;">	
+	<tr style="border-width: 2px;">
+  	<th style="text-align:center; border-width: 2px;"><b>Symbol Name</b></th>
+  	<th style="text-align:center; border-width: 2px;"><b>Money Portion</b></th>
+  	<th style="text-align:center; border-width: 2px;"><b>Portion (in %)</b></th>
+	</tr>	
+	{% for item in dicton %}        
+	<tr  style="border-width: 2px;">
+
+                {% for x in item %}
+                        <td style="text-align:center; border-width: 2px;"><b style="color:#008000"><b>{{x}}</b></td>
+                {% endfor %}
+        </tr>
+	{% endfor %}
+	</table>
+  </div>
+    <div class="selection center-block">
+      <div class="row">
+
+
+
+
+      </div>
+  </div>
+</div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+</div>
+  </div>
+<script>
+$(window).on('resize',function() {
+     var docHeight = $(window).height();
+     var footerHeight = $('#footer').height();
+     var footerTop = $('#footer').position().top + footerHeight;
+
+     if (footerTop < docHeight) {
+      $('#footer').css('margin-top', -30 + (docHeight - footerTop) + 'px');
+     }
+    });
+    $(document).ready(function() {
+        $(window).trigger('resize');
+    });
+</script>
+
+<div id="footer">
+  <div class="container-fluid">
+    <div class="row">
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+

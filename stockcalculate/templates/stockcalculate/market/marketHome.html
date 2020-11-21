@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Performance Trend</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+     <script src="http://code.highcharts.com/stock/highstock.src.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/static/css/boot.css">
+
+    <script type="text/javascript">
+            /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }</script>
+
+
+
+
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <style type="text/css">
+#container, #sliders {
+    min-width: 310px; 
+    max-width: 800px;
+    margin: 0 auto;
+}
+#container {
+    height: 400px; 
+}
+    </style>
+
+</head>
+
+<script type="text/javascript">
+$(function () {
+    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
+
+        // Create the chart
+        Highcharts.stockChart('container', {
+            chart: {
+                type: 'area'
+            },
+
+            rangeSelector: {
+                selected: 1
+            },
+
+            title: {
+                text: 'AAPL Stock Price'
+            },
+
+        credits: {
+    enabled: false
+  },
+
+            yAxis: {
+                reversed: true,
+                showFirstLabel: false,
+                showLastLabel: true
+            },
+
+            series: [{
+                name: 'AAPL Stock Price',
+                data: data,
+                threshold: null,
+                fillColor: {
+                    linearGradient: {
+                        x1: 0,
+                        y1: 1,
+                        x2: 0,
+                        y2: 0
+                    },
+                    stops: [
+                        [0, Highcharts.getOptions().colors[0]],
+                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                    ]
+                },
+                tooltip: {
+                    valueDecimals: 2
+                }
+            }]
+        });
+    });
+});
+    </script>
+
+
+
+    <script type="text/javascript">
+$(function () {
+    Highcharts.chart('container2', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+
+        title: {
+            text: 'Investment Strategy Distrubtion'
+        },
+
+
+
+        credits: {
+    enabled: false
+  },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Stocks',
+            colorByPoint: true,
+            data: [{
+                name: 'Apple',
+                y: 30
+            }, {
+                name: 'Adobe',
+                y: 20,
+                sliced: true,
+                selected: true
+            }, {
+                name: 'Google',
+                y: 20
+            }, {
+                name: 'Nike Inc',
+                y: 20
+            }, {
+                name: 'Johnson Controls',
+                y: 10
+            }]
+        }]
+    });
+});
+    </script>
+
+
+
+<body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+ 
+  <div class="header">
+    <div class="container-fluid">
+      
+          <a href="#" class="text-center">
+            <div class="text-center"><img src="/static/img/logo.png" height="38" width="38"></div>
+            <div class="text-center"><center>Stock Engine</center>
+            </div>
+          </a>
+        </div>
+    
+  </div>
+
+ 
+
+<div class="container-fluid">
+  <div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <h3><b style="color:#008000">STOCK MARKET & STRATEGY</b></h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-12">
+        
+      </div>
+    </div>
+
+    
+    <div class="row">
+      <div class="chart"><div id="container"></div></div>
+    </div>
+  </div>
+
+  <div class="col-md-6 gutter-fix">
+    <div class="row">
+      <div class="col-md-12">
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="chart"><div id="container2"></div></div>
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+
+<script>
+  $(window).on('resize',function() {
+	 var docHeight = $(window).height();
+	 var footerHeight = $('#footer').height();
+	 var footerTop = $('#footer').position().top + footerHeight;
+
+	 if (footerTop < docHeight) {
+	  $('#footer').css('margin-top', -30 + (docHeight - footerTop) + 'px');
+	 }
+	});
+	$(document).ready(function() {
+	    $(window).trigger('resize');
+	});
+</script>
+
+<div id="footer">
+  <div class="container-fluid">
+    <div class="row">
+  	</div>
+	</div>
+</div>
+</body>
+</html>
